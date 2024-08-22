@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bulk Email Sender</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container py-5">
+    <a class="navbar-brand" href="#" th:href="@{/}">Bulk Email Sender</a>
+
+    <div class="row">
+        <div class="col-10 mx-auto">
+        
+            <h1>File Upload Status</h1>
+            <!--display error if any-->
+     
+     		<div>
+     			<a class="btn btn-primary" th:href="@{/sendemails}">Send Email CSV</a>
+     		</div>
+
+            <!--display users list-->
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="email, i : ${emails}">
+                    <th scope="row" th:text="${i.index + 1}"></th>
+                    <td th:text="${email}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
